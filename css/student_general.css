@@ -116,6 +116,23 @@ div.tiles .tile {
   flex: 1 1 150px;
   height: 150px;
   padding: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+.tile .tile_top {
+  flex: 0 0 60px;
+  height: 60px;
+  width: 60px;
+}
+.tile .tile_text {
+  text-align: center;
+}
+.prizes_text {
+  text-decoration: underline;
+  color: #00d29c;
 }
 /* register tile */
 div.tiles .register_tile {

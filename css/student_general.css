@@ -24,6 +24,13 @@ body,
   max-width: 600px;
   margin: 0 auto;
 }
+/* earth */
+.earth {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 256px;
+}
 
 /* header */
 .header {
@@ -162,4 +169,9 @@ div.contact .contact_card {
 }
 div.contact .contact_card:not(:last-child) {
   margin-right: 10px;
+}
+
+/* footer */
+.footer {
+  border-radius: 5px 5px 0 0;
 }

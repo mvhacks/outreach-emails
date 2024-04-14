@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MVHacks 7.0 Student Outreach Email</title>
+  </head>
+  <!-- only body will be included in the actual emails; needs some conversions to make all styles independent and inline for send -->
+  <body>
+    <style>
+      html,
+      body,
+      .parent {
+        width: 100%;
+        /* height: 100%; */
+        margin: 0;
+        padding: 0;
+      }
+      .spacer {
+        line-height: 0;
+        height: 0;
+        font-size: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .link {
+        color: #dc428e;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .parent {
+        background: #141b23;
+        color: white;
+        font-family: Lato, "Open Sans", sans-serif;
+      }
+      .main_container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        z-index: 2;
+      }
+      /* earth */
+      .earth_wrapper {
+        max-height: 0;
+        width: 100%;
+        overflow: visible;
+        z-index: 1;
+      }
+      .earth_wrapper_row {
+        display: table-row;
+      }
+      .earth_wrapper_row > * {
+        display: table-cell;
+      }
+      .earth_spacer {
+        width: 100%;
+      }
+      .earth {
+        width: 256px;
+      }
+
+      /* header */
+      .header {
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        font-family: Poppins, Inter, Lato, "Open Sans", sans-serif;
+        font-weight: 500;
+        font-size: 36px;
+      }
+      .header b {
+        opacity: 0.8;
+      }
+      .header span {
+        opacity: 0.5;
+      }
+      /* contents */
+      .contents_container {
+        padding: 12px;
+        padding-top: 0px;
+      }
+      .contents_container > *:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      .contents {
+        border-radius: 5px;
+        border: 1px solid #6d90ea40;
+        backdrop-filter: blur(10px);
+        padding: 2px;
+        /* display: block; */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      .contents td > * {
+        padding: 10px 18px;
+      }
+      .contents td > :first-child {
+        padding-top: 18px;
+      }
+      .contents td > :last-child {
+        padding-bottom: 18px;
+      }
+
+      .contents p {
+        color: #fff;
+        font-family: Lato, "Open Sans", sans-serif;
+        font-size: 13.5px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 1.35px;
+        margin: 0;
+      }
+      .contents p span + span {
+        display: block;
+        margin-top: 4px;
+      }
+      .contents p span.alt {
+        color: #999bcd;
+        opacity: 0.7;
+      }
+      /* glass */
+      .glass {
+        border-radius: 3px;
+        border: 1px solid #6d90ea30;
+        background: #332d5240;
+        backdrop-filter: blur(3px);
+      }
+      .before_tiles {
+        padding-bottom: 2px;
+      }
+      .after_tiles {
+        padding-top: 2px;
+      }
+      /* tiles */
+      div.tiles {
+        /* redo above with table */
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        border-spacing: 18px;
+        padding: 0;
+      }
+      div.tiles .tile {
+        /* height: 150px; */
+        padding: 16px;
+        display: table-cell;
+
+        color: #fff;
+        text-decoration: none;
+      }
+      div.tiles .tile_row {
+        display: table-row;
+      }
+      .tile .tile_top {
+        height: 60px;
+        width: 60px;
+        margin: auto;
+        display: block;
+        margin-top: 0;
+      }
+      .tile .tile_text {
+        font-size: 0.75em;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .prizes_text {
+        text-decoration: underline;
+        color: #00d29c;
+      }
+      /* register tile */
+      div.tiles .register_tile {
+        padding: 0;
+        display: table-cell;
+        vertical-align: bottom;
+      }
+      .register_tile .text {
+        font-family: Inter, Lato, "Open Sans", sans-serif;
+        font-size: 56px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+      .register_tile .register {
+        display: inline-block;
+        background-color: #dc428e;
+        border: solid 1px #6d98eaaa;
+        width: 100%;
+        padding: 12px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        font-family: Inter, Lato, "Open Sans", sans-serif;
+        font-weight: bold;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-radius: 3px;
+      }
+      /* contact cards */
+      div.contact {
+        display: block;
+        height: auto;
+        padding: 13px;
+        margin-top: -5px;
+        margin-bottom: -5px;
+      }
+      div.contact .contact_card {
+        display: inline-block;
+        padding: 10px;
+        font-size: 14px;
+        white-space: nowrap;
+        text-decoration: none;
+        color: #fff;
+      }
+      div.contact .contact_card {
+        margin: 5px;
+      }
+
+      /* footer */
+      .footer {
+        border-radius: 5px 5px 0 0;
+      }
+      .browser_link {
+        text-align: center;
+        display: block;
+        padding: 12px;
+        padding-top: 0;
+        font-size: 0.8em;
+      }
+    </style>
+    <div style="background: #141b23">
+      <span class="spacer"></span>
+      <div class="parent">
+        <span class="spacer"></span>
+        <div class="earth_wrapper">
+          <div class="earth_wrapper_row">
+            <div class="earth_spacer"></div>
+            <img
+              src="http://mvhacks.io/outreach-emails/img/earth.png"
+              alt="Glowing Earth Illustration"
+              class="earth"
+            />
+          </div>
+        </div>
+        <div class="main_container">
+          <div class="header"><b>MVHacks</b> <span>7.0</span></div>
+          <div class="contents_container">
+            <table class="contents" background="http://mvhacks.io/outreach-emails/img/bg.png">
+              <tr>
+                <td>
+                  <p>Hi {student_name}!</p>
+                  <p>
+                    MVHacks’ 7.0 Hackathon is just a few weeks away! These events are a wonderful
+                    opportunity for students like you (regardless of your previous experience) to
+                    learn more about the tech sector, get hands on with discover new passions, and
+                    connect with industry professionals. Not to mention all the free sponsor swag
+                    and prizes!
+                  </p>
+                  <p class="before_tiles">
+                    Attached to this email you’ll find some informational slides to help you learn
+                    more before signing up, which you can do by visiting
+                    <a class="link" href="https://mvhacks.dev/signup">mvhacks.dev/signup</a>!
+                  </p>
+                  <div class="tiles">
+                    <div class="tile_row">
+                      <div class="tile glass">
+                        <img
+                          src="http://mvhacks.io/outreach-emails/img/ctf.png"
+                          alt="CTF Icon"
+                          class="tile_top"
+                        />
+                        <div class="tile_text">capture the flag challenges</div>
+                      </div>
+
+                      <div class="tile glass">
+                        <img
+                          src="http://mvhacks.io/outreach-emails/img/games.png"
+                          alt="Games Icon"
+                          class="tile_top"
+                        />
+                        <div class="tile_text">party games and entertainment</div>
+                      </div>
+
+                      <div class="tile glass">
+                        <img
+                          src="http://mvhacks.io/outreach-emails/img/sponsors.png"
+                          alt="CTF Icon"
+                          class="tile_top"
+                        />
+                        <div class="tile_text">
+                          corporate <b class="prizes_text">prizes</b> and sponsors
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tile_row">
+                      <div class="tile glass">
+                        <img
+                          src="http://mvhacks.io/outreach-emails/img/feedback.png"
+                          alt="Feedback Icon"
+                          class="tile_top"
+                        />
+                        <div class="tile_text">get professional feedback and tips</div>
+                      </div>
+                      <div class="tile register_tile">
+                        <div class="text">7.0</div>
+                        <a class="register" href="https://mvhacks.dev/signup">Register Now</a>
+                      </div>
+                      <a href="https://mvhacks.dev" class="tile glass">
+                        <img
+                          src="http://mvhacks.io/outreach-emails/img/more.png"
+                          alt="More Icon"
+                          class="tile_top"
+                        />
+                        <div class="tile_text">
+                          learn more at <span class="link">mvhacks.dev</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <p class="after_tiles">
+                    We’ll look forward to seeing you there! Please don’t hesitate to reach out to me
+                    if you have any questions (or know anyone who’d like to sponsor!)
+                  </p>
+                  <p>
+                    <span>Best,</span>
+                    <span>Sander Vonk </span>
+                    <span class="alt">MVHS Class of 2024; MVHacks 7.0 Outreach Director</span>
+                  </p>
+                  <div class="contact">
+                    <a href="mailto:sander@mvhacks.io" class="contact_card glass"
+                      >sander@mvhacks.io</a
+                    >
+                    <a href="mailto:100026480@mvla.net" class="contact_card glass"
+                      >100026480@mvla.net</a
+                    >
+                    <a href="mailto:sander@svonk.me" class="contact_card glass">sander@svonk.me</a>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <a
+            class="link browser_link"
+            href="https://mvhacks.io/outreach-emails/student_general?name={student_name}"
+            >View this email in your browser</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

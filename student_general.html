@@ -47,7 +47,7 @@
         <div class="header"><b>MVHacks</b>&MediumSpace;<span>7.0</span></div>
         <div class="contents_container">
           <div class="contents">
-            <p>Hi {student_name}!</p>
+            <p id="replace">Hi {student_name}!</p>
             <p>
               MVHacks’ 7.0 Hackathon is just a few weeks away! These events are a wonderful
               opportunity for students like you (regardless of your previous experience) to learn
@@ -106,12 +106,18 @@
             </div>
           </div>
         </div>
-        <img
+        <!-- <img
           class="footer"
           src="img/footer.svg"
           class="Footer image displaying the link to mvhacks.dev"
-        />
+        /> -->
       </div>
     </main>
+    <script>
+      document.getElementById("replace").innerText = `Hi ${
+        new URLSearchParams(window.location.search).get("name") || "student"
+      }!`;
+      window.history.replaceState({}, document.title, window.location.pathname);
+    </script>
   </body>
 </html>

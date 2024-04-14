@@ -17,7 +17,7 @@ body,
 .parent {
   background-color: #141b23;
   color: white;
-  font-family: Lato;
+  font-family: Lato, "Open Sans", sans-serif;
 }
 .main_container {
   width: 100%;
@@ -40,7 +40,7 @@ body,
   justify-content: center;
 
   text-align: center;
-  font-family: Poppins;
+  font-family: Poppins, Inter, Lato, "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 36px;
 }
@@ -80,7 +80,7 @@ body,
 
 .contents p {
   color: #fff;
-  font-family: Lato;
+  font-family: Lato, "Open Sans", sans-serif;
   font-size: 13.5px;
   font-style: normal;
   font-weight: 400;
@@ -113,8 +113,9 @@ div.tiles {
   align-items: stretch;
 }
 div.tiles .tile {
-  flex: 1 1 150px;
-  height: 150px;
+  /* flex: 1 1 150px; */
+  flex: 1 1 140px;
+  /* height: 150px; */
   padding: 16px;
 
   display: flex;
@@ -144,7 +145,7 @@ div.tiles .register_tile {
   flex-flow: column nowrap;
 }
 .register_tile .text {
-  font-family: Inter;
+  font-family: Inter, Lato, "Open Sans", sans-serif;
   font-size: 56px;
   font-weight: bold;
   text-align: center;
@@ -165,7 +166,8 @@ div.tiles .register_tile {
   overflow: hidden;
   color: #fff;
   text-decoration: none;
-  font-family: Inter;
+  text-align: center;
+  font-family: Inter, Lato, "Open Sans", sans-serif;
   font-weight: bold;
   font-size: 16px;
   text-transform: uppercase;
